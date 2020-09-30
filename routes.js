@@ -1,12 +1,14 @@
 const express = require('express')
 const routes = express.Router()
-const instructors = require('./instructors')
+const members = require('./instructors')
 
 
 routes.get('/', function (req, res) {
     return res.redirect("/instructors")
 
 })
+
+// ## Routes instructors
 
 routes.get('/instructors', instructors.index)
 
@@ -24,10 +26,27 @@ routes.put("/instructors", instructors.put)
 
 routes.delete("/instructors", instructors.delete)
 
-routes.get("/members", function (req, res) {
 
-    return res.render("members/index")
+//## Routes members
+
+routes.get('/members', members.index)
+
+routes.get('/members/create', function (req, res) {
+    return res.render("members/create")
 })
+
+routes.get('/members/:id', members.show)
+
+routes.get('/members/:id/edit', members.edit)
+
+routes.post("/members", members.post)
+
+routes.put("/members", members.put)
+
+routes.delete("/members", members.delete)
+
+
+
 
 
 module.exports = routes
