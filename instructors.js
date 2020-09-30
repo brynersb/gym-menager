@@ -2,6 +2,12 @@ const fs = require('fs')
 const data = require("./data.json")
 const { age, date } = require("./utils")
 
+
+exports.index = function (req, res) {
+
+    return res.render("instructors/index", { instructors: data.instructors })
+}
+
 //show
 
 exports.show = function (req, res) {
@@ -14,7 +20,7 @@ exports.show = function (req, res) {
 
     if (!foundInstructor) return res.send("instructor not found")
 
-    //logica de transformar o sexo guardada pra brincar depois   
+    //outras logica para trasnformar  M e F em feminino ou masculino   
     // function trasnformGender (x){
 
     //     let sexo = x
@@ -75,7 +81,10 @@ exports.post = function (req, res) {
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
 
-        if (err) return res.send("Write file Error!")
+        if (err) {
+
+            return res.send("Write file Error!")
+        }
 
         return res.redirect("/instructors")
     })
@@ -86,6 +95,7 @@ exports.post = function (req, res) {
 // pagida de edit
 
 exports.edit = function (req, res) {
+
     const { id } = req.params
 
     const foundInstructor = data.instructors.find(function (instructor) {
@@ -96,7 +106,7 @@ exports.edit = function (req, res) {
 
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth)
+        birth: date(foundInstructor.birth),
     }
 
 
@@ -126,7 +136,9 @@ exports.put = function (req, res) {
     const instructor = {
         ...foundInstructor,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
+
     }
 
     data.instructors[index] = instructor
