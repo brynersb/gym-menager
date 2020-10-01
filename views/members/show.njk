@@ -3,29 +3,31 @@
 {% block content %}
 
     <div class="card">
-        <section class="avatar" style="background: url({{instructor.avatar_url}}) no-repeat center center/cover"></section>
+        <section class="avatar" style="background: url({{member.avatar_url}}) no-repeat center center/cover"></section>
         <section class="details">
             <h3>Detalhes</h3>
 
             <div class="item">
-                <div>instructor</div>
-                <div>{{instructor.name}}</div>
+                <div>member</div>
+                <div>{{member.name}}</div>
             </div>
             <div class="item">
                 <div>idade</div>
-                <div>{{instructor.age}} anos </div>
+                <div>{{member.age}}
+                    anos
+                </div>
             </div>
 
             <div class="item">
                 <div>sexo</div>
-                <div>{{"Masculino" if instructor.gender == "M" else "Feminino"}}</div>
-                {# <div>{{instructor.gender}}</div> #}
+                <div>{{"Masculino" if member.gender == "M" else "Feminino"}}</div>
+                {# <div>{{member.gender}}</div> #}
             </div>
 
             <div class="item">
                 <div>Acompanhamento</div>
                 <div>
-                    {% for service in instructor.services %}
+                    {% for service in member.services %}
                         <span>{{service}}</span>
                     {% endfor %}
 
@@ -34,10 +36,10 @@
 
             <div class="item">
                 <div>Desde</div>
-                <div>{{instructor.created_at}}</div>
+                <div>{{member.created_at}}</div>
             </div>
 
-            <a href="/instructors/{{instructor.id}}/edit" class="button">Editar</a>
+            <a href="/members/{{member.id}}/edit" class="button">Editar</a>
 
         </section>
     </div>
