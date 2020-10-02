@@ -11,10 +11,16 @@
                 <div>member</div>
                 <div>{{member.name}}</div>
             </div>
+
             <div class="item">
-                <div>idade</div>
-                <div>{{member.age}}
-                    anos
+                <div>Email</div>
+                <div>{{member.email}}
+                </div>
+            </div>
+
+            <div class="item">
+                <div>Aniversario</div>
+                <div>{{member.birth}}
                 </div>
             </div>
 
@@ -25,18 +31,18 @@
             </div>
 
             <div class="item">
-                <div>Acompanhamento</div>
-                <div>
-                    {% for service in member.services %}
-                        <span>{{service}}</span>
-                    {% endfor %}
-
-                </div>
+                <div>Tipo Sanguínio</div>
+                <div>{{member.blood}}</div>
             </div>
 
             <div class="item">
-                <div>Desde</div>
-                <div>{{member.created_at}}</div>
+                <div>Peso</div>
+                <div>{{member.weight}}kg</div>
+            </div>
+
+            <div class="item">
+                <div>Altura (cm)</div>
+                <div>{{member.height}}</div>
             </div>
 
             <a href="/members/{{member.id}}/edit" class="button">Editar</a>

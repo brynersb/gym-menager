@@ -7,46 +7,6 @@ exports.index = function (req, res) {
 
     return res.render("instructors/index", { instructors: data.instructors })
 }
-
-//show
-
-exports.show = function (req, res) {
-
-    const { id } = req.params
-
-    const foundInstructor = data.instructors.find(function (instructor) {
-        return instructor.id == id
-    })
-
-    if (!foundInstructor) return res.send("instructor not found")
-
-    //outras logica para trasnformar  M e F em feminino ou masculino   
-    // function trasnformGender (x){
-
-    //     let sexo = x
-
-    //     if (sexo == "M") {
-
-    //         return sexo = "masculino"
-
-    //     }
-    //     else{
-    //         return sexo = "feminino"
-    //     }
-    // }
-
-    // const sexo = trasnformGender(foundInstructor.gender)
-
-    const instructor = {
-        ...foundInstructor,
-        // gender: sexo,
-        age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
-    }
-
-    return res.render("instructors/show", { instructor })
-}
 //create
 
 exports.create = function (req, res) {
@@ -97,6 +57,46 @@ exports.post = function (req, res) {
     // return res.send(req.body)
 }
 
+//show
+
+exports.show = function (req, res) {
+
+    const { id } = req.params
+
+    const foundInstructor = data.instructors.find(function (instructor) {
+        return instructor.id == id
+    })
+
+    if (!foundInstructor) return res.send("instructor not found")
+
+    //outras logica para trasnformar  M e F em feminino ou masculino   
+    // function trasnformGender (x){
+
+    //     let sexo = x
+
+    //     if (sexo == "M") {
+
+    //         return sexo = "masculino"
+
+    //     }
+    //     else{
+    //         return sexo = "feminino"
+    //     }
+    // }
+
+    // const sexo = trasnformGender(foundInstructor.gender)
+
+    const instructor = {
+        ...foundInstructor,
+        // gender: sexo,
+        age: age(foundInstructor.birth),
+        services: foundInstructor.services.split(","),
+        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
+    }
+
+    return res.render("instructors/show", { instructor })
+}
+
 // pagida de edit
 
 exports.edit = function (req, res) {
@@ -111,7 +111,7 @@ exports.edit = function (req, res) {
 
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth),
+        birth: date(foundInstructor.birth).iso,
     }
 
 

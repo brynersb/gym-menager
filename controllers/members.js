@@ -7,32 +7,6 @@ exports.index = function (req, res) {
 
     return res.render("members/index", { members: data.members })
 }
-
-//show
-
-exports.show = function (req, res) {
-
-    const { id } = req.params
-
-    const foundMember = data.members.find(function (member) {
-        return member.id == id
-    })
-
-    if (!foundMember) return res.send("member not found")
-
-
-
-    const member = {
-        ...foundMember,
-        // gender: sexo,
-        age: age(foundMember.birth),
-        services: foundMember.services.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundMember.created_at),
-    }
-
-    return res.render("members/show", { member })
-}
-
 //Create
 
 exports.create = function (req, res) {
@@ -52,23 +26,23 @@ exports.post = function (req, res) {
 
     }
 
-    let { avatar_url, birth, name, services, gender } = req.body
-
     birth = Date.parse(req.body.birth)
-    const created_at = Date.now()
-    const id = Number(data.members.length + 1)
 
-    //[]
+    //logica para que não haja id repetidos
+    let id = 1
+    const lestMember = data.members[data.members.length - 1]
+
+    if (lestMember) {
+        id = lestMember + 1
+    }
 
     data.members.push({
         id,
-        name,
-        gender,
-        services,
-        avatar_url,
+        ...req.body,
         birth,
-        created_at
-    }) //[{...}]
+
+
+    }) 
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
 
@@ -82,9 +56,35 @@ exports.post = function (req, res) {
 
 }
 
+//show
+
+exports.show = function (req, res) {
+
+    const { id } = req.params
+
+    const foundMember = data.members.find(function (member) {
+        return member.id == id
+    })
+
+    if (!foundMember) return res.send("member not found")
+
+
+
+    const member = {
+        ...foundMember,
+        // gender: sexo,
+        birth: date(foundMember.birth).birthDay,
+        // services: foundMember.services.split(","),
+
+    }
+
+    return res.render("members/show", { member })
+}
+
 // pagida de edit
 
 exports.edit = function (req, res) {
+
 
     const { id } = req.params
 
@@ -96,7 +96,7 @@ exports.edit = function (req, res) {
 
     const member = {
         ...foundMember,
-        birth: date(foundMember.birth),
+        birth: date(foundMember.birth).iso,
     }
 
 
@@ -108,6 +108,16 @@ exports.edit = function (req, res) {
 // de fato editar o formulario do usuario
 
 exports.put = function (req, res) {
+
+    const keys = Object.keys(req.body)
+
+    for (key of keys) {
+
+        if (req.body[key] == "") {
+            return res.send("Please, Fill all filds")
+        }
+
+    }
 
     const { id } = req.body
 
@@ -128,7 +138,6 @@ exports.put = function (req, res) {
         ...req.body,
         birth: Date.parse(req.body.birth),
         id: Number(req.body.id)
-
     }
 
     data.members[index] = member
