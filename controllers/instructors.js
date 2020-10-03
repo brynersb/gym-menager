@@ -30,7 +30,14 @@ exports.post = function (req, res) {
 
     birth = Date.parse(req.body.birth)
     const created_at = Date.now()
-    const id = Number(data.instructors.length + 1)
+
+    let id = 1
+    const lastInstructor = data.instructors[data.instructors.length - 1].id
+
+    if (lastInstructor) {
+        id = lastInstructor + 1
+    }
+
 
     //[]
 

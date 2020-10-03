@@ -30,7 +30,7 @@ exports.post = function (req, res) {
 
     //logica para que não haja id repetidos
     let id = 1
-    const lestMember = data.members[data.members.length - 1]
+    const lestMember = data.members[data.members.length - 1].id
 
     if (lestMember) {
         id = lestMember + 1
@@ -40,8 +40,6 @@ exports.post = function (req, res) {
         id,
         ...req.body,
         birth,
-
-
     }) 
 
     fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
