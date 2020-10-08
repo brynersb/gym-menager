@@ -21,17 +21,6 @@
       "blood": "A+",
       "weight": "56",
       "height": "156"
-    },
-    {
-      "id": 3,
-      "avatar_url": "http://www.google.com",
-      "name": "Rota Mídia Exterior",
-      "email": "borella@rotamidia.com.br",
-      "birth": -23219827200000,
-      "gender": "M",
-      "blood": "AB+",
-      "weight": "123",
-      "height": "123"
     }
   ],
   "instructors": [
@@ -39,7 +28,7 @@
       "id": 1,
       "name": "Bryner Pereira",
       "gender": "M",
-      "services": "Karate",
+      "services": "karate, juijitsi",
       "avatar_url": "https://scontent.frec5-1.fna.fbcdn.net/v/t1.0-9/21617784_1532312896825148_3780600650807033875_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_eui2=AeFwJWIqkQdO3EGzAf0IiuwDU81JXQWNdnRTzUldBY12dBbwF2HRr0l6LHk2__rLfGeK3iK_14J_08RkcclwVaYE&_nc_ohc=PhRcwcbYL0cAX_31ZkG&_nc_ht=scontent.frec5-1.fna&oh=0f749a0d29474550380607e3368f9a13&oe=5F99A3CB",
       "birth": 598492800000,
       "created_at": 1598896445789
@@ -48,7 +37,7 @@
       "id": 2,
       "name": "Luiza Fabiola Mendes",
       "gender": "F",
-      "services": "Zumba",
+      "services": "Zumba, Gym",
       "avatar_url": "https://scontent.frec5-1.fna.fbcdn.net/v/t1.0-9/93411714_10222258201269076_953942339867377664_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_eui2=AeEjnX64-41iKjrLB3lMaaBQYIYxSi6f1elghjFKLp_V6SKxqr3PdjcBljSoksDgZX8KoaYtzQHhupuWpFrvxSGh&_nc_ohc=O8LmUScN-MgAX96YUdU&_nc_ht=scontent.frec5-1.fna&oh=907541fbc367f0b9948822f185459947&oe=5F9AB0FC",
       "birth": 546566400000,
       "created_at": 1598896526851
@@ -61,15 +50,6 @@
       "avatar_url": "https://scontent.frec5-1.fna.fbcdn.net/v/t1.0-9/117288768_10223417701615860_4556954258573552966_o.jpg?_nc_cat=111&_nc_sid=84a396&_nc_eui2=AeFrpkB0ue20-rY9OhkQbGqweJ9Z6Fcrw9h4n1noVyvD2PMTC0idlqb8BvCUQVkr9HJuvZpqQy-aYw8zKfq-4YUM&_nc_ohc=Foqr_FH_a78AX9FB5uw&_nc_ht=scontent.frec5-1.fna&oh=3a3498812a446ef282a5805d9fb01012&oe=5F753E3D",
       "birth": 1351728000000,
       "created_at": 1598896845181
-    },
-    {
-      "id": 4,
-      "name": "YUL BRYNER FELISARDO PEREIRA DA SILVA",
-      "gender": "M",
-      "services": "teste, teste2",
-      "avatar_url": "https://scontent.frec5-1.fna.fbcdn.net/v/t1.0-9/21617784_1532312896825148_3780600650807033875_n.jpg?_nc_cat=104&_nc_sid=09cbfe&_nc_eui2=AeFwJWIqkQdO3EGzAf0IiuwDU81JXQWNdnRTzUldBY12dBbwF2HRr0l6LHk2__rLfGeK3iK_14J_08RkcclwVaYE&_nc_ohc=PhRcwcbYL0cAX_31ZkG&_nc_ht=scontent.frec5-1.fna&oh=0f749a0d29474550380607e3368f9a13&oe=5F99A3CB",
-      "birth": 598492800000,
-      "created_at": 1601759047198
     }
   ]
 }
